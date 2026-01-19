@@ -70,47 +70,47 @@ class AddpersonalView(APIView):
         return Response(serializer.data,status=status.HTTP_200_OK)
     
 
-# class RetriveUpdateDelete(APIView):
+class RetriveUpdateDelete(APIView):
 
-#     permission_classes =[IsAuthenticated]
+    permission_classes =[IsAuthenticated]
 
-#     authentication_classes =[TokenAuthentication]
+    authentication_classes =[TokenAuthentication]
 
-#     def get(self,request,**kwargs):
+    def get(self,request,**kwargs):
 
-#         id = kwargs.get('pk')
+        id = kwargs.get('pk')
 
-#         personal = get_object_or_404(PersonalModel,id=id,user= request.user)
+        personal = get_object_or_404(PersonalModel,id=id,user= request.user)
 
-#         serializer = PersonalSerializer(personal,many= False)
+        serializer = PersonalSerializer(personal,many= False)
 
-#         return Response(serializer.data,status=status.HTTP_200_OK)
+        return Response(serializer.data,status=status.HTTP_200_OK)
     
-#     def put(self,request,**kwargs):
+    def put(self,request,**kwargs):
 
-#         id = kwargs.get('pk')
+        id = kwargs.get('pk')
 
-#         personal = get_object_or_404(PersonalModel,id=id,user= request.user)
+        personal = get_object_or_404(PersonalModel,id=id,user= request.user)
 
-#         serializer = PersonalSerializer(personal,data= request.data )
+        serializer = PersonalSerializer(personal,data= request.data )
 
-#         if serializer.is_valid():
+        if serializer.is_valid():
 
-#             serializer.save()
+            serializer.save()
 
-#             return Response(serializer.data,status=status.HTTP_200_OK)
+            return Response(serializer.data,status=status.HTTP_200_OK)
         
-#         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
-#     def delete(self,request,**kwargs):
+    def delete(self,request,**kwargs):
 
-#         id= kwargs.get('pk')
+        id= kwargs.get('pk')
 
-#         personal = get_object_or_404(PersonalModel,id= id)
+        personal = get_object_or_404(PersonalModel,id= id)
 
-#         personal.delete()
+        personal.delete()
 
-#         return Response({"message":"deleted"},status=status.HTTP_200_OK)
+        return Response({"message":"deleted"},status=status.HTTP_200_OK)
 
 
         
