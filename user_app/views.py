@@ -43,31 +43,31 @@ class LoginView(APIView):
         return Response({"message":"loginsucess","token":token.key},status=status.HTTP_200_OK)
     
     
-# class AddpersonalView(APIView):
+class AddpersonalView(APIView):
 
-#     authentication_classes =[TokenAuthentication]
+    authentication_classes =[TokenAuthentication]
 
-#     permission_classes =[IsAuthenticated]
+    permission_classes =[IsAuthenticated]
 
-#     def post(self,request):
+    def post(self,request):
 
-#         serializer = PersonalSerializer(data=request.data)
+        serializer = PersonalSerializer(data=request.data)
 
-#         if serializer.is_valid():
+        if serializer.is_valid():
 
-#             serializer.save(user =request.user)
+            serializer.save(user =request.user)
 
-#             return Response(serializer.data,status=status.HTTP_201_CREATED)
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
         
-#         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
-#     def get(self,request):
+    def get(self,request):
 
-#         data =PersonalModel.objects.filter(user =request.user)
+        data =PersonalModel.objects.filter(user =request.user)
 
-#         serializer = PersonalSerializer(data,many =True)
+        serializer = PersonalSerializer(data,many =True)
 
-#         return Response(serializer.data,status=status.HTTP_200_OK)
+        return Response(serializer.data,status=status.HTTP_200_OK)
     
 
 # class RetriveUpdateDelete(APIView):

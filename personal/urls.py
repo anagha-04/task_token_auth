@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',UserRegisterView.as_view(),name="register"),
     path('login/',LoginView.as_view(),name="login"),
-    # path('add/list/',AddpersonalView.as_view(),name="add_list"),
+    path('add/list/',AddpersonalView.as_view(),name="add_list"),
     # path('rud/<int:pk>/',RetriveUpdateDelete.as_view(),name="rud"),
     
 
